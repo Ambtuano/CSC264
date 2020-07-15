@@ -1,5 +1,5 @@
 const questionList = document.querySelector('#question-list');
-const form = document.querySelector('#add-question-form');
+const form = document.querySelector('#add-submission-form');
 
 // create element and render cafe jk student 
 function renderSubmission(doc) {
@@ -9,9 +9,9 @@ function renderSubmission(doc) {
     let date = document.createElement('span');
 
     li.setAttribute('data-id', doc.id);
-    question.textContent = doc.data().question;
-    company.textContent = doc.data().company;
-    date.textContent = doc.data().date;
+    question.textContent = doc.data().Question;
+    company.textContent = doc.data().Company;
+    date.textContent = doc.data().Date;
 
     li.appendChild(question);
     li.appendChild(company);
@@ -45,11 +45,11 @@ form.addEventListener('submit',(e) => {
         Question: form.question.value,
         Company: form.company.value,
         Date: form.date.value,
-        //user: user.value
+        user: firebase.auth().currentUser.email
     });
     form.question.value = '';
     form.company.value = '';
-    form.data.value = '';
+    form.date.value = '';
 })
 
 document.addEventListener('DOMContentLoaded', function () {

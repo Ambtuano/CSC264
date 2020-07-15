@@ -1,0 +1,166 @@
+<!doctype html>
+
+<html lang="en">
+<!-- Expand on firestore assignment 1 to have a sign up, log in, and log out functionality
+The student information should only be visible when a user is logged in
+New student information can only be added/submitted when a user is logged in
+-->
+
+<head>
+  <meta charset="utf-8">
+  <title>HomePage</title>
+  <meta name="description" content="The Home Page">
+  <meta name="author" content="SitePoint">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-firestore.js"></script>
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-analytics.js"></script>
+
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="z-depth-0 grey lighten-4">
+    <div class="nav-wrapper container">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li class="logged-in">
+          <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+        </li>
+        <li class="logged-in">
+          <a href="#" class="grey-text" id="logout">Logout</a>
+        </li>
+        <li class="logged-in">
+          <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Guide</a>
+        </li>
+        <li class="logged-out">
+          <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+        </li>
+        <li class="logged-out">
+          <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+        </li>
+        </span>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- SIGN UP MODAL -->
+  <div id="modal-signup" class="modal">
+    <div class="modal-content">
+      <h4>Sign up</h4><br />
+      <form id="signup-form">
+        <div class="input-field">
+          <input type="email" id="signup-email" required />
+          <label for="signup-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="signup-password" required />
+          <label for="signup-password">Choose password</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- LOGIN MODAL -->
+  <div id="modal-login" class="modal">
+    <div class="modal-content">
+      <h4>Login</h4><br />
+      <form id="login-form">
+        <div class="input-field">
+          <input type="email" id="login-email" required />
+          <label for="login-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="login-password" required />
+          <label for="login-password">Your password</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Question List -->
+  <div class="content">
+    <form id="add-submission-form">
+      <div class="form-group row">
+        <label for="question" class="input-field inline">Interview Question:</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="question" name="question">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="date" class="input-field inline">Interview Date:</label>
+        <div class="col-sm-2">
+          <input type="text" class="datepicker" id="date" name="date">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="company" class="input-field inline">Company:</label>
+        <div class="col-sm-2">
+          <input type="text" class="form-control" id="company" name="company">
+        </div>
+      </div>
+      <input type="submit" value="Submit">
+    </form>
+    <ul id="question-list"></ul>
+  </div>
+
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAqg55s3nwMVG9zBlrNhUlV5Q_uyg3PMA4",
+      authDomain: "finalprojectcsc264.firebaseapp.com",
+      databaseURL: "https://finalprojectcsc264.firebaseio.com",
+      projectId: "finalprojectcsc264",
+      storageBucket: "finalprojectcsc264.appspot.com",
+      messagingSenderId: "1009255114446",
+      appId: "1:1009255114446:web:afc29eb2af4848b922129f",
+      measurementId: "G-1WKFC76LQJ"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    // reference auth and firestore 
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // update firestore settings: removed as it is no longer required
+    //db.settings({ timestampsInSnapshots: true });
+  </script>
+
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="script.js"></script>
+  <script src="auth.js"></script>
+</body>
+
+
+</html>
