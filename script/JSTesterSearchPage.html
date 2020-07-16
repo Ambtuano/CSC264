@@ -8,8 +8,8 @@ New student information can only be added/submitted when a user is logged in
 
 <head>
   <meta charset="utf-8">
-  <title>HomePage</title>
-  <meta name="description" content="The Home Page">
+  <title>SearchPage</title>
+  <meta name="description" content="The Search Page">
   <meta name="author" content="SitePoint">
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -36,7 +36,6 @@ New student information can only be added/submitted when a user is logged in
 
 
   <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
 
@@ -44,43 +43,22 @@ New student information can only be added/submitted when a user is logged in
 
 <body>
 
-  <!-- NAVBAR/SEARCH -->
+  <!-- NAVBAR -->
   <nav class="z-depth-0 grey lighten-4">
     <div class="nav-wrapper container">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li class="logged-in">
-          <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
-        </li>
-        <li class="logged-in">
-          <a href="#" class="grey-text" id="logout">Logout</a>
-        </li>
+        <form id="add-search-form">
+          <input id="searchInput" type="text" placeholder="Search..">
+          <input type="submit" value="Submit"></input>
+        </form>
+        </span>
       </ul>
     </div>
   </nav>
 
+
   <!-- Question List -->
   <div class="content">
-    <form id="add-search-form">
-      <div class="form-group row">
-        <label for="question" class="input-field inline">Interview Question:</label>
-        <div class="col-sm-8">
-          <input type="text" class="form-control" id="question" name="question">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="date" class="input-field inline">Interview Date:</label>
-        <div class="col-sm-2">
-          <input type="text" class="datepicker" id="date" name="date">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="company" class="input-field inline">Company:</label>
-        <div class="col-sm-2">
-          <input type="text" class="form-control" id="company" name="company">
-        </div>
-      </div>
-      <input type="submit" value="Submit">
-    </form>
     <ul id="question-list"></ul>
   </div>
 
@@ -112,8 +90,7 @@ New student information can only be added/submitted when a user is logged in
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="script.js"></script>
-  <script src="auth.js"></script>
+  <script src="search.js"></script>
 </body>
 
 
