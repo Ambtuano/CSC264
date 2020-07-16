@@ -36,6 +36,7 @@ New student information can only be added/submitted when a user is logged in
 
 
   <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
 
@@ -43,7 +44,7 @@ New student information can only be added/submitted when a user is logged in
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- NAVBAR/SEARCH -->
   <nav class="z-depth-0 grey lighten-4">
     <div class="nav-wrapper container">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -53,56 +54,32 @@ New student information can only be added/submitted when a user is logged in
         <li class="logged-in">
           <a href="#" class="grey-text" id="logout">Logout</a>
         </li>
-        <li class="logged-out">
-          <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
-        </li>
-        <li class="logged-out">
-          <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
-        </li>
-        </span>
       </ul>
     </div>
   </nav>
 
-  <!-- SIGN UP MODAL -->
-  <div id="modal-signup" class="modal">
-    <div class="modal-content">
-      <h4>Sign up</h4><br />
-      <form id="signup-form">
-        <div class="input-field">
-          <input type="email" id="signup-email" required />
-          <label for="signup-email">Email address</label>
-        </div>
-        <div class="input-field">
-          <input type="password" id="signup-password" required />
-          <label for="signup-password">Choose password</label>
-        </div>
-        <button class="btn yellow darken-2 z-depth-0">Sign up</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- LOGIN MODAL -->
-  <div id="modal-login" class="modal">
-    <div class="modal-content">
-      <h4>Login</h4><br />
-      <form id="login-form">
-        <div class="input-field">
-          <input type="email" id="login-email" required />
-          <label for="login-email">Email address</label>
-        </div>
-        <div class="input-field">
-          <input type="password" id="login-password" required />
-          <label for="login-password">Your password</label>
-        </div>
-        <button class="btn yellow darken-2 z-depth-0">Login</button>
-      </form>
-    </div>
-  </div>
-
   <!-- Question List -->
   <div class="content">
-    <form id="add-submission-form">
+    <form id="add-search-form">
+      <div class="form-group row">
+        <label for="question" class="input-field inline">Interview Question:</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="question" name="question">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="date" class="input-field inline">Interview Date:</label>
+        <div class="col-sm-2">
+          <input type="text" class="datepicker" id="date" name="date">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="company" class="input-field inline">Company:</label>
+        <div class="col-sm-2">
+          <input type="text" class="form-control" id="company" name="company">
+        </div>
+      </div>
+      <input type="submit" value="Submit">
     </form>
     <ul id="question-list"></ul>
   </div>
