@@ -8,8 +8,8 @@ New student information can only be added/submitted when a user is logged in
 
 <head>
   <meta charset="utf-8">
-  <title>HomePage</title>
-  <meta name="description" content="The Home Page">
+  <title>SearchPage</title>
+  <meta name="description" content="The Search Page">
   <meta name="author" content="SitePoint">
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -47,63 +47,18 @@ New student information can only be added/submitted when a user is logged in
   <nav class="z-depth-0 grey lighten-4">
     <div class="nav-wrapper container">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li class="logged-in">
-          <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
-        </li>
-        <li class="logged-in">
-          <a href="#" class="grey-text" id="logout">Logout</a>
-        </li>
-        <li class="logged-out">
-          <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
-        </li>
-        <li class="logged-out">
-          <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
-        </li>
+        <form id="add-search-form">
+          <input id="searchInput" type="text" placeholder="Search..">
+          <input type="submit" value="Submit"></input>
+        </form>
         </span>
       </ul>
     </div>
   </nav>
 
-  <!-- SIGN UP MODAL -->
-  <div id="modal-signup" class="modal">
-    <div class="modal-content">
-      <h4>Sign up</h4><br />
-      <form id="signup-form">
-        <div class="input-field">
-          <input type="email" id="signup-email" required />
-          <label for="signup-email">Email address</label>
-        </div>
-        <div class="input-field">
-          <input type="password" id="signup-password" required />
-          <label for="signup-password">Choose password</label>
-        </div>
-        <button class="btn yellow darken-2 z-depth-0">Sign up</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- LOGIN MODAL -->
-  <div id="modal-login" class="modal">
-    <div class="modal-content">
-      <h4>Login</h4><br />
-      <form id="login-form">
-        <div class="input-field">
-          <input type="email" id="login-email" required />
-          <label for="login-email">Email address</label>
-        </div>
-        <div class="input-field">
-          <input type="password" id="login-password" required />
-          <label for="login-password">Your password</label>
-        </div>
-        <button class="btn yellow darken-2 z-depth-0">Login</button>
-      </form>
-    </div>
-  </div>
 
   <!-- Question List -->
   <div class="content">
-    <form id="add-submission-form">
-    </form>
     <ul id="question-list"></ul>
   </div>
 
@@ -135,8 +90,7 @@ New student information can only be added/submitted when a user is logged in
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="script.js"></script>
-  <script src="auth.js"></script>
+  <script src="search.js"></script>
 </body>
 
 
