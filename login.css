@@ -259,9 +259,10 @@ form:after {
   background-color: #00467F;
 }
 #homeButton{
-  background-color: #00467F;
-  font-size: 30px;
-  color: white;
+	padding-top: 14px;
+  	background-color: #00467F;
+  	font-size: 20px;
+  	color: white;
 }
 
 
@@ -269,65 +270,61 @@ form:after {
 body{
 	background-color: lightgray;
 }
-h1{
+#Logo{
 	text-align: center;
+	font-size: 70px;
+	color: #696969;
 }
-h2{
+#welcome-text{
 	text-align: center;
+	font-size:28px;
+	color: #696969;
+	padding-top: 30px;
 }
-p{
+#intro-paraghraph{
 	text-align: center;
+	font-size:28px;
+	color: #696969;
+	padding-top: 30px;
+
 }
-#log-in{
-	margin-right: 400px;
-	margin-top :400px;
+#LOGIN{
+	margin-right: 150px;
+	margin-left: 50px;
+	margin-top :100px;
+	width:250px;
+	height: 50px;	
+}
+#REGISTER{
+	margin-left: 150px;
 	width:250px;
 	height: 50px;
+}
+#Logout-button{
+
+  	background-color: #00467F;
+  	font-size: 20px;
+  	color: white;
 
 }
-#sign-up{
-	width:250px;
-	height: 50px;
+#your-result{
+
+	font-size:28px;
+	color: #696969;
+	padding-top: 50px;
+	margin-left: 20px;
 }
-
- ul {
-	list-style-type: none;
-	padding: 0;
-	overflow: hidden;
-	background-color: white;
-	margin: 0;
-}
-
-li{
-
-	display: inline-block;
-
-
-
-}
-li a {
-	color :black;
-	display: block;
-	padding: 10px;
-    text-decoration: none;
-    margin-left: 20px;
-
-}
-a:hover ,a:active{
-	background-color: orange;
-}
-#log-out{
-	margin-left: 1000px;
- }
  .box{
 	background-color: white;
 	width: 1200px;
-	height: 800px;
+	height: 1000px;
 	margin: 0 auto;
 }
-
-header{
-	margin-top: 40px;
-	margin-left:150PX;
-	font-size:80px;
+.Filterbytime{
+margin-left:800px;
+padding-bottom: 20px;
+}
+.filterbycompany{
+	margin-left:800px;
+padding-bottom: 50px;
 }
