@@ -1,7 +1,7 @@
 const questionList = document.querySelector('#question-list');
 const form = document.querySelector('#add-submission-form');
 
-// create element and render cafe jk student 
+// create element and render submission list 
 function renderSubmission(doc) {
     let li = document.createElement('li');
     let question = document.createElement('span');
@@ -20,15 +20,22 @@ function renderSubmission(doc) {
     questionList.appendChild(li);
 }
 
+
+// hides form and list when logged out
+// only shows submissions of user
 const setupSubmissionList = (data) => {
     if (data.length) {
-        questionList.innerHTML = '<h1> Submission <h1>';
+        form.innerHTML = '<div class="form-group row"><label for="question" class="input-field inline">Interview Question:</label><div class="col-sm-8"><input type="text" class="form-control" id="question" name="question"></div></div><div class="form-group row"><label for="date" class="input-field inline">Interview Date:</label><div class="col-sm-2"><input type="text" class="datepicker" id="date" name="date"></div></div><div class="form-group row"><label for="company" class="input-field inline">Company:</label><div class="col-sm-2"><input type="text" class="form-control" id="company" name="company"></div></div><input type="submit" value="Submit"></input>';
+        questionList.innerHTML = '<h1> Your Submissions <h1>';
         data.forEach(doc => {
             const submission = doc.data();
-            renderSubmission(doc);
+            if (doc.data().user == firebase.auth().currentUser.email) {
+                renderSubmission(doc);
+            }
         })
     } else {
-        questionList.innerHTML = '<h3> Login to view your submissions <h3>'
+        form.innerHTML = '';
+        questionList.innerHTML = '<h3> Login to view your submissions <h3>';
     }
 }
 
@@ -39,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 //saving data
-form.addEventListener('submit',(e) => {
+form.addEventListener('submit', (e) => {
     e.preventDefault();
     db.collection('Submissions').add({
         Question: form.question.value,
