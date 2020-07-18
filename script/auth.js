@@ -4,9 +4,7 @@ auth.onAuthStateChanged(user => {
         console.log('user logged in: ', user);
         //getting data
         db.collection('Submissions').get().then((snapshot) => {
-            snapshot.docs.forEach(doc => {
-                setupSubmissionList(snapshot.docs);
-            });
+            setupSubmissionList(snapshot.docs);
         })
     }
     else {
