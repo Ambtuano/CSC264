@@ -21,7 +21,7 @@ New student information can only be added/submitted when a user is logged in
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    
+
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
@@ -49,10 +49,28 @@ New student information can only be added/submitted when a user is logged in
     <div class="nav-wrapper container">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <form id="add-search-form">
-          <input id="searchInput" type="text" placeholder="Search..">
+          <input id="searchInput" type="text" placeholder="Interview Question Search..">
           <input type="submit" value="Submit"></input>
         </form>
-        </span>
+        <div class="Filterbytime">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter By
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#day">day</a></li>
+              <li><a href="#week">week</a></li>
+              <li><a href="#month">month</a></li>
+              <li><a href="#year">year</a></li>
+              <li><a href="#all">all</a></li>
+            </ul>
+        </div>
+        <div class="filterbycompany">
+          <form class="navbar-form navbar-left" action="/action_page.php">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Enter company name" name="search">
+            </div>
+            <input type="submit" value="Submit"></input>
+          </form>
+        </div>
       </ul>
     </div>
   </nav>

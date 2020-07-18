@@ -33,7 +33,7 @@ function renderSubmission(doc) {
 // filters based on date
 const setupSubmissionList = (data, time) => {
     if (data.length) {
-        form.innerHTML = '<input type="text" id="searchInput" placeholder="Search.."><input type="submit" value="Submit"></input>';
+        form.innerHTML = '<input type="text" id="searchInput" placeholder="Interview Question Search.."><input type="submit" value="Submit"></input>';
         questionList.innerHTML = '<h1> Results <h1>';
         let day = 8.64*Math.pow(10,7);
         let week = 8.64*Math.pow(10,7)*7;
@@ -67,6 +67,8 @@ const setupSubmissionList = (data, time) => {
         questionList.innerHTML = '<h3> Login to view interview questions <h3>';
     }
 }
+
+
 
 //listening for auth status changes
 auth.onAuthStateChanged(user => {

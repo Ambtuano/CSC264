@@ -25,7 +25,7 @@ function renderSubmission(doc) {
 // only shows submissions of user
 const setupSubmissionList = (data) => {
     if (data.length) {
-        form.innerHTML = '<div class="form-group row"><label for="question" class="input-field inline">Interview Question:</label><div class="col-sm-8"><input type="text" class="form-control" id="question" name="question"></div></div><div class="form-group row"><label for="date" class="input-field inline">Interview Date:</label><div class="col-sm-2"><input type="text" class="datepicker" id="date" name="date"></div></div><div class="form-group row"><label for="company" class="input-field inline">Company:</label><div class="col-sm-2"><input type="text" class="form-control" id="company" name="company"></div></div><input type="submit" value="Submit"></input>';
+        $('#add-submission-form').show();
         questionList.innerHTML = '<h1> Your Submissions <h1>';
         data.forEach(doc => {
             const submission = doc.data();
@@ -34,7 +34,7 @@ const setupSubmissionList = (data) => {
             }
         })
     } else {
-        form.innerHTML = '';
+        $('#add-submission-form').hide();
         questionList.innerHTML = '<h3> Login to view your submissions <h3>';
     }
 }
