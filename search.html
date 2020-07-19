@@ -35,9 +35,9 @@
 			</ul>
 			<form class="navbar-form navbar-left" action="/action_page.php">
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Search" name="search">
+					<input type="text" class="form-control" placeholder="Search" name="search" id="searchbar">
 				</div>
-				<button type="submit" class="glyphicon glyphicon-search"></button>
+				<button type="button" class="glyphicon glyphicon-search" onclick="filterfunction()"></button>
 			</form>
 
 		</div>
@@ -56,14 +56,14 @@
 			<option value="month">month</option>
 			<option value="year">year</option>
 		</select>
-		<button type="button" onclick='timefunction()'></button>
+		<button type="button" onclick='filterfunction()'></button>
 	</div>
 	<div class="filterbycompany">
 		<form class="navbar-form navbar-left" action="/action_page.php">
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Enter company name" name="search">
+				<input type="text" class="form-control" placeholder="Enter company name" name="search" id="companyfilter">
 			</div>
-			<button type="submit" class="glyphicon glyphicon-search" ></button>
+			<button type="button" class="glyphicon glyphicon-search" onclick="filterfunction()"></button>
 		</form>
 	</div>
 
