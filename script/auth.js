@@ -25,9 +25,8 @@ signupForm.addEventListener('submit', (e) => {
 
     //sign up user
     auth.createUserWithEmailAndPassword(email, password).then(cred => {
-        const modal = document.querySelector('#modal-signup');
-        M.Modal.getInstance(modal).close();
         signupForm.reset();
+        window.location.href = "http://www.w3schools.com";
     });
 });
 
@@ -52,8 +51,7 @@ loginForm.addEventListener('submit', (e) => {
 
     auth.signInWithEmailAndPassword(email, password).then(cred => {
         //closing login modal and reset form
-        const modal = document.querySelector('#modal-login');
-        M.Modal.getInstance(modal).close();
         loginForm.reset();
+        window.location.href = "http://www.w3schools.com";
     })
 })
