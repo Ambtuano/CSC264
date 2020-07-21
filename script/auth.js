@@ -52,6 +52,6 @@ loginForm.addEventListener('submit', (e) => {
     auth.signInWithEmailAndPassword(email, password).then(cred => {
         //closing login modal and reset form
         loginForm.reset();
-        window.location.href = "http://www.w3schools.com";
+        window.location.href = "../home.html";
     })
 })
