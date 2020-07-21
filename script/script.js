@@ -42,11 +42,11 @@ const setupSubmissionList = (data) => {
 //saving data
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(form.date.value);
+    dateString = new Date(form.date.value)
     db.collection('Submissions').add({
         Question: form.question.value,
         Company: form.company.value,
-        Date: form.date.value,
+        Date: dateString.toDateString().slice(4),
         user: firebase.auth().currentUser.email,
         username: firebase.auth().currentUser.displayName
     });
