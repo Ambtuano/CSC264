@@ -61,7 +61,8 @@
 			<div id="myModal" class="modal">
 
 				<!-- Modal content -->
-				<div class="modal-content" id="add-submission-form">
+				<div class="modal-content">
+					<form id="add-submission-form">
 					<span class="close">&times;</span>
 					<p><input class="w3-input" placeholder="Enter Question Here:" type="text" id="question"></p>
 
@@ -69,10 +70,11 @@
 					<!-- date picker, feel free to change this if needed-->
 
 					<div class="col-sm-2">
-						<input type="date" class="datepicker" id="date" name="date">
+						<input type="date" class="date" id="date" name="date">
 					</div>
 					
-					<button type="submit" value="Submit" id="submitQuest" class="btn btn-default">Submit Question</button>
+					<input type="submit" value="Submit" id="submitQuest" class="btn btn-default">
+					</form>
 				</div>
 
 			</div>

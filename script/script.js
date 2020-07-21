@@ -40,8 +40,9 @@ const setupSubmissionList = (data) => {
 }
 
 //saving data
-form.addEventListener('click', (e) => {
+form.addEventListener('submit', (e) => {
     e.preventDefault();
+    console.log(form.date.value);
     db.collection('Submissions').add({
         Question: form.question.value,
         Company: form.company.value,
@@ -49,6 +50,7 @@ form.addEventListener('click', (e) => {
         user: firebase.auth().currentUser.email,
         username: firebase.auth().currentUser.displayName
     });
+    console.log('done!');
     form.question.value = '';
     form.company.value = '';
     form.date.value = '';
