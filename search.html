@@ -33,12 +33,12 @@
 	    <ul class="nav navbar-nav">
 	      <!-- <li  id="homeButton" class="active"<a href="#">Home</a></li> -->
 	    </ul>
-	    <form class="navbar-form navbar-left" action="/action_page.php">
+	    <form class="navbar-form navbar-left">
 	      <div class="form-group">
         <a id="homeButton" class="btn" href="home.html">Home</a>
-	        <input type="text" class="form-control" placeholder="Search" name="search">
+	        <input type="text" class="form-control" placeholder="Search" name="search" id="searchbar">
 	      </div>
-	      <button type="submit" class="btn btn-default">Submit</button>
+	      <button type="submit" class="btn btn-default" onclick='filterfunction()'>Submit</button>
         <button type="submit" id="logoutBtn" class="btn btn-default">Log out</button>
 
 	    </form>
@@ -51,19 +51,18 @@
 	</div>
 
 	<div class="Filterbytime">
-		<select name="timefilter" id="timefilter" >
+		<select name="timefilter" id="timefilter" onchange='filterfunction()' >
 			<option value="all">All time</option>
 			<option value="day">day</option>
 			<option value="week">week</option>
 			<option value="month">month</option>
 			<option value="year">year</option>
 		</select>
-		<button type="button" onclick='timefunction()'>submit</button>
 	</div>
 	<div class="filterbycompany">
-		<form action="/action_page.php">
+		<form >
 			<input type="text" id="Companyname" name="Companyname" placeholder=" Enter Company name">
-			<button type="button"value="Submit">submit</button>
+			<button type="button"value="Submit" onclick='filterfunction()'>submit</button>
 	
 		</form>
 		
