@@ -64,9 +64,9 @@ setupSubmissionList = (data, time) => {
 
 // filters based on search
 searchSubmissionList = (data, time) => {
+
     var searchinput = document.getElementById("searchbar").value;
-    var companyinput = document.getElementById("companyfilter").value;
-    var timevalue = document.getElementById("timefilter").value;
+    var companyinput = document.getElementById("Companyname").value;
     var searchkeywords = searchinput.split(" ");
     var companykeywords = companyinput.split(" ");
 
@@ -74,6 +74,8 @@ searchSubmissionList = (data, time) => {
     var y = 0;
     if (data.length) {
         data.forEach(doc => {
+            x = 0;
+            y = 0;
             searchkeywords.forEach(i => {
                 if(doc.data().Question.toLowerCase().match(i.toLowerCase()) || doc.data().Company.toLowerCase().match(i.toLowerCase())){
                 x = 1;
@@ -112,8 +114,6 @@ searchSubmissionList = (data, time) => {
 
                 } else {
                 }
-                x = 0;
-                y = 0;
             }else if (companyinput.length) { // search if both we only have company input
                 console.log(x);
                 console.log(y);
@@ -143,8 +143,6 @@ searchSubmissionList = (data, time) => {
 
                 } else {
                 }
-                x = 0;
-                y = 0;
             }else if (searchinput.length) { // search if both we only have search input
                 console.log(x);
                 console.log(y);
@@ -174,12 +172,28 @@ searchSubmissionList = (data, time) => {
 
                 } else {
                 }
-                x = 0;
-                y = 0;
             } else { //if search and company are empty
-                db.collection('Submissions').get().then((snapshot) => {
+                var ms = today - Date.parse(doc.data().Date)
+                if (time == 'day' && ms < day) {
                     renderSubmission(doc);
-                })
+                    console.log("day");
+                }
+                else if (time == 'week' && ms < week) {
+                    renderSubmission(doc);
+                    console.log("week");
+                }
+                else if (time == 'month' && ms < month) {
+                    renderSubmission(doc);
+                    console.log("month");
+                }
+                else if (time == 'year' && ms < year) {
+                    renderSubmission(doc);
+                    console.log("year");
+                }
+                else if (time == 'all') {
+                    renderSubmission(doc);
+                    console.log("all");
+                }
             }
         })
     } else { //no data is input

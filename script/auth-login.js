@@ -26,6 +26,14 @@ loginForm.addEventListener('submit', (e) => {
     auth.signInWithEmailAndPassword(email, password).then(cred => {
         //closing login modal and reset form
         loginForm.reset();
-        window.location.href = "script/JSTesterPageHome.html";
+        window.location.href = "../home.html";
     })
 })
+
+//logout
+const logout = document.querySelector('#logoutBtn');
+logout.addEventListener('click', (e) => {
+
+    e.preventDefault();
+    auth.signOut()
+});

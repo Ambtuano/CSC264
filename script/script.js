@@ -52,7 +52,8 @@ form.addEventListener('submit', (e) => {
         Question: form.question.value,
         Company: form.company.value,
         Date: form.date.value,
-        user: firebase.auth().currentUser.email
+        user: firebase.auth().currentUser.email,
+        username: firebase.auth().currentUser.displayName
     });
     form.question.value = '';
     form.company.value = '';

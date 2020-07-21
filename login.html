@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>we dont know yet</title>
   <meta charset="utf-8">
@@ -7,46 +8,87 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="login.css">
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-firestore.js"></script>
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-analytics.js"></script>
+
+
+  <link rel="stylesheet" type="text/css" href="login.css">
+
 </head>
+
 <body>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="welcome.html">WebSiteName</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li  id="homeButton" class="active"<a href="#">Home</a></li>
-    </ul>
-    <form class="navbar-form navbar-left" action="/action_page.php">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search" name="search">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="welcome.html">WebSiteName</a>
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-  </div>
-</nav>
+      <ul class="nav navbar-nav">
+        <!-- <li  id="homeButton" class="active"<a href="#">Home</a></li> -->
+      </ul>
+      <form class="navbar-form navbar-left" action="/action_page.php">
+        <div class="form-group">
+          <a id="homeButton" class="btn" href="home.html">Home</a>
+          <input type="text" class="form-control" placeholder="Search" name="search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" id="logoutBtn" class="btn btn-default">Log out</button>
 
-<div class="container">
+      </form>
+    </div>
+  </nav>
+
+  <div class="container">
     <section id="content">
-        <form action="">
-            <h1>Login Form</h1>
-            <div>
-                <input type="text" placeholder="Username" required="" id="username" />
-            </div>
-            <div>
-                <input type="password" placeholder="Password" required="" id="password" />
-            </div>
-            <div>
-                <input id="login" type="submit" value="Log in" />
-                <a href="#">Lost your password?</a>
-                <a href="signup.html">Register</a>
-            </div>
-        </form><!-- form -->
+      <form action="" id="login-form">
+        <h1>Login Form</h1>
+        <div>
+          <input type="text" placeholder="Email" required="" id="login-email" />
+        </div>
+        <div>
+          <input type="password" placeholder="Password" required="" id="login-password" />
+        </div>
+        <div>
+          <input id="login" type="submit" value="Log in" />
+          <a href="#">Lost your password?</a>
+          <a href="signup.html">Register</a>
+        </div>
+      </form><!-- form -->
 
     </section><!-- content -->
-</div><!-- container -->
+  </div><!-- container -->
 
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAqg55s3nwMVG9zBlrNhUlV5Q_uyg3PMA4",
+      authDomain: "finalprojectcsc264.firebaseapp.com",
+      databaseURL: "https://finalprojectcsc264.firebaseio.com",
+      projectId: "finalprojectcsc264",
+      storageBucket: "finalprojectcsc264.appspot.com",
+      messagingSenderId: "1009255114446",
+      appId: "1:1009255114446:web:afc29eb2af4848b922129f",
+      measurementId: "G-1WKFC76LQJ"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    // reference auth and firestore 
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+// update firestore settings: removed as it is no longer required
+//db.settings({ timestampsInSnapshots: true });
+  </script>
+
+  <script src="script/auth-login.js"></script>
 </body>
+
 </html>

@@ -1,1 +1,127 @@
-hi
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>we dont know yet</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" type="text/css" href="login.css">
+	<title>Welcome page</title>
+	
+	<!-- Compiled and minified CSS specifically for datepicker the CSS of this affects the rest of the css-->
+	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
+
+	<link rel="stylesheet" href="login.css">
+
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-firestore.js"></script>
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-analytics.js"></script>
+
+
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="welcome.html">WebSiteName</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<!-- <li  id="homeButton" class="active"<a href="#">Home</a></li> -->
+			</ul>
+			<form class="navbar-form navbar-left" action="search.html">
+				<div class="form-group">
+					<a id="homeButton" class="btn" href="home.html">Home</a>
+					<input type="text" class="form-control" placeholder="Search" name="search">
+				</div>
+				<button type="submit" class="btn btn-default" onclick="filterfunction()">Submit</button>
+				<button type="submit" id="logoutBtn" class="btn btn-default">Log out</button>
+
+			</form>
+		</div>
+	</nav>
+	<div class="boxed">
+		<div class="w3-container">
+			<button class="btn btn-default" id="myBtn">Enter Question here:</button>
+
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+
+				<!-- Modal content -->
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p><input class="w3-input" placeholder="Enter Question Here:" type="text" id="question"></p>
+					<button type="submit" id="submitQuest" class="btn btn-default">Submit Question</button>
+				</div>
+
+			</div>
+			<p><input id="company" class="w3-input" placeholder="Company Name:" type="text"></p>
+			<!-- date picker, feel free to change this if needed-->
+			<!-- 
+			<label for="date" class="input-field inline">Interview Date:</label>
+			<div class="col-sm-2">
+				<input type="text" class="datepicker" id="date" name="date">
+			</div>
+			-->
+
+			<button type="submit" id="submitQuest2" class="btn btn-default" >Submit Question</button>
+
+
+
+
+			<div id="questionBox" class="w3-card-4">
+				<div class="w3-container">
+					<h2>Questions you have submitted before:</h2>
+				</div>
+
+				<form class="w3-container">
+					<ul id="question-list"></ul>
+				</form>
+			</div>
+
+
+
+		</div>
+	</div>
+	<script>
+		// Your web app's Firebase configuration
+		var firebaseConfig = {
+			apiKey: "AIzaSyAqg55s3nwMVG9zBlrNhUlV5Q_uyg3PMA4",
+			authDomain: "finalprojectcsc264.firebaseapp.com",
+			databaseURL: "https://finalprojectcsc264.firebaseio.com",
+			projectId: "finalprojectcsc264",
+			storageBucket: "finalprojectcsc264.appspot.com",
+			messagingSenderId: "1009255114446",
+			appId: "1:1009255114446:web:afc29eb2af4848b922129f",
+			measurementId: "G-1WKFC76LQJ"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+		firebase.analytics();
+
+		// reference auth and firestore 
+		const auth = firebase.auth();
+		const db = firebase.firestore();
+
+    // update firestore settings: removed as it is no longer required
+    //db.settings({ timestampsInSnapshots: true });
+	</script>
+
+
+	<script type="text/javascript" src="script/home.js"></script>
+	<script src="script/script.js"></script>
+	<script src="script/auth.js"></script>
+
+</body>
+
+</html>
