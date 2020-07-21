@@ -39,12 +39,6 @@ const setupSubmissionList = (data) => {
     }
 }
 
-// // setting up calender/date picker
-// document.addEventListener('DOMContentLoaded', function () {
-//     var elems = document.querySelectorAll('.datepicker');
-//     var instances = M.Datepicker.init(elems, {});
-// });
-
 //saving data
 form.addEventListener('click', (e) => {
     e.preventDefault();
@@ -62,10 +56,6 @@ form.addEventListener('click', (e) => {
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    var modals = document.querySelectorAll('.modal');
-    M.Modal.init(modals);
 
-    var items = document.querySelectorAll('.collapsible');
-    M.Collapsible.init(items);
 
 })

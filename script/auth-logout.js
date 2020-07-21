@@ -3,13 +3,13 @@ auth.onAuthStateChanged(user => {
     if (user) {
         console.log('user logged in: ', user);
         //getting data
-        // db.collection('Submissions').get().then((snapshot) => {
-        //     setupSubmissionList(snapshot.docs);
-        // })
+        db.collection('Submissions').get().then((snapshot) => {
+            setupSubmissionList(snapshot.docs);
+        })
     }
     else {
         console.log('user logged out');
-        //setupSubmissionList([]);
+        setupSubmissionList([]);
     }
 })
 
