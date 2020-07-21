@@ -5,16 +5,17 @@
 	<title>we dont know yet</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Compiled and minified CSS specifically for datepicker the CSS of this affects the rest of the css-->
+	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	
 	<link rel="stylesheet" type="text/css" href="login.css">
 	<title>Welcome page</title>
-	
-	<!-- Compiled and minified CSS specifically for datepicker the CSS of this affects the rest of the css-->
-	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
 
 	<link rel="stylesheet" href="login.css">
 
@@ -67,14 +68,12 @@
 			</div>
 			<p><input id="company" class="w3-input" placeholder="Company Name:" type="text"></p>
 			<!-- date picker, feel free to change this if needed-->
-			<!-- 
-			<label for="date" class="input-field inline">Interview Date:</label>
-			<div class="col-sm-2">
-				<input type="text" class="datepicker" id="date" name="date">
-			</div>
-			-->
 
-			<button type="submit" id="submitQuest2" class="btn btn-default" >Submit Question</button>
+			<div class="col-sm-2">
+				<input type="date" class="datepicker" id="date" name="date">
+			</div>
+		
+			<button type="submit" id="submitQuest2" class="btn btn-default" value="Submit">Submit Question</button>
 
 
 
