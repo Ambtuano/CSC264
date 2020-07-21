@@ -5,7 +5,7 @@
 	<title>we dont know yet</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
+
 	<!-- Compiled and minified CSS specifically for datepicker the CSS of this affects the rest of the css-->
 	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -13,7 +13,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	
+
 	<link rel="stylesheet" type="text/css" href="login.css">
 	<title>Welcome page</title>
 
@@ -24,9 +24,11 @@
 	<script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-firestore.js"></script>
+
 	<!-- TODO: Add SDKs for Firebase products that you want to use
     https://firebase.google.com/docs/web/setup#available-libraries -->
 	<script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-analytics.js"></script>
+
 
 
 </head>
@@ -46,7 +48,7 @@
 					<input type="text" class="form-control" placeholder="Search" name="search">
 				</div>
 				<button type="submit" class="btn btn-default" onclick="filterfunction()">Submit</button>
-				<button type="submit" id="logoutBtn" class="btn btn-default">Log out</button>
+				<button type="button" id="logoutBtn" class="btn btn-default">Log out</button>
 
 			</form>
 		</div>
@@ -59,23 +61,21 @@
 			<div id="myModal" class="modal">
 
 				<!-- Modal content -->
-				<div class="modal-content">
+				<div class="modal-content" id="add-submission-form">
 					<span class="close">&times;</span>
 					<p><input class="w3-input" placeholder="Enter Question Here:" type="text" id="question"></p>
-					<button type="submit" id="submitQuest" class="btn btn-default">Submit Question</button>
+
+					<p><input id="company" class="w3-input" placeholder="Company Name:" type="text"></p>
+					<!-- date picker, feel free to change this if needed-->
+
+					<div class="col-sm-2">
+						<input type="date" class="datepicker" id="date" name="date">
+					</div>
+					
+					<button type="submit" value="Submit" id="submitQuest" class="btn btn-default">Submit Question</button>
 				</div>
 
 			</div>
-			<p><input id="company" class="w3-input" placeholder="Company Name:" type="text"></p>
-			<!-- date picker, feel free to change this if needed-->
-
-			<div class="col-sm-2">
-				<input type="date" class="datepicker" id="date" name="date">
-			</div>
-		
-			<button type="submit" id="submitQuest2" class="btn btn-default" value="Submit">Submit Question</button>
-
-
 
 
 			<div id="questionBox" class="w3-card-4">
@@ -119,7 +119,7 @@
 
 	<script type="text/javascript" src="script/home.js"></script>
 	<script src="script/script.js"></script>
-	<script src="script/auth.js"></script>
+	<script src="script/auth-logout.js"></script>
 
 </body>
 

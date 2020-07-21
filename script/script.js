@@ -39,14 +39,14 @@ const setupSubmissionList = (data) => {
     }
 }
 
-// setting up calender/date picker
-document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.datepicker');
-    var instances = M.Datepicker.init(elems, {});
-});
+// // setting up calender/date picker
+// document.addEventListener('DOMContentLoaded', function () {
+//     var elems = document.querySelectorAll('.datepicker');
+//     var instances = M.Datepicker.init(elems, {});
+// });
 
 //saving data
-form.addEventListener('submit', (e) => {
+form.addEventListener('click', (e) => {
     e.preventDefault();
     db.collection('Submissions').add({
         Question: form.question.value,
